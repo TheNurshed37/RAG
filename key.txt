@@ -1,0 +1,8 @@
+Gemini KEY: AIzaSyC6KcojG7D2Uq_lHryo9c3v6wmuDtT9Rm0
+
+
+openAI key: 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
+
+groq:  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
+
+firework: fw_3ZbvoMhABGyQ8BizJNFhwiBP
