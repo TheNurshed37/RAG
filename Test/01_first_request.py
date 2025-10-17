@@ -3,7 +3,7 @@
 from google import genai
 import os
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key="AIzaSyC6KcojG7D2Uq_lHryo9c3v6wmuDtT9Rm0")
 
 # response = client.models.generate_content(
 #     model="gemini-2.5-flash",
