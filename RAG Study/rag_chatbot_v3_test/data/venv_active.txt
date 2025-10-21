@@ -1,0 +1,5 @@
+source /home/nurshed/Desktop/python/venv/base/bin/activate
+
+sudo apt update && sudo apt upgrade -y
+
+

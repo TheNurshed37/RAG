@@ -1,21 +1,31 @@
 # main.py
 from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 import os
 
 from vector_store import build_faiss_index
 from rag import answer_question
 
+# Initialize FastAPI app
 app = FastAPI(title="RAG Chatbot API", version="1.0")
+
+# ✅ Enable CORS properly for FastAPI
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change to specific origins if needed
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Directory for uploads
 UPLOAD_DIR = "data"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-
 @app.post("/upload-pdf")
 async def upload_pdf(file: UploadFile = File(...)):
-    """Upload a PDF and build a FAISS vector index."""
+    """Upload a PDF and build FAISS index."""
     try:
         file_path = os.path.join(UPLOAD_DIR, file.filename)
         with open(file_path, "wb") as f:
@@ -27,16 +37,14 @@ async def upload_pdf(file: UploadFile = File(...)):
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
 
-
 @app.post("/ask")
-async def ask_question(question: str = Form(...)):
-    """Ask a question based on the indexed documents."""
+async def ask_question_endpoint(question: str = Form(...)):
+    """Ask a question based on the documents."""
     try:
         answer = answer_question(question)
         return {"question": question, "answer": answer}
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
-
 
 # @app.get("/")
 # def root():
