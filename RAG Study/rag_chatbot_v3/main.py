@@ -8,7 +8,18 @@ from vector_store import add_to_faiss_index
 from rag import answer_question
 #from rag import answer_question_stream
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI(title="RAG Chatbot API", version="3.0")
+
+# ✅ Enable CORS properly for FastAPI
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change to specific origins if needed
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 UPLOAD_DIR = "data"
 FAISS_DIR = "faiss_index"
@@ -89,64 +100,3 @@ async def reset_vector_store():
 
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": f"Reset failed: {str(e)}"})
-
-
-
-
-
-#the response of this endpoint will stream the answer back to the client
-
-# @app.post("/ask")
-# async def ask_question(question: str = Form(...)):
-#     if not os.path.exists(FAISS_DIR) or not os.listdir(FAISS_DIR):
-#         return {"question": question, "answer": "I don’t know (No document found)."}
-
-#     async def event_generator():
-#         for token in answer_question_stream(question):
-#             yield token
-
-#     return StreamingResponse(event_generator(), media_type="text/plain")
-
-
-
-'''
-
-@app.post("/ask")
-async def ask_question(question: str = Form(...)):
-    """Stream answer from LLM based on FAISS retrieval."""
-    try:
-        # Use StreamingResponse with generator
-        return StreamingResponse(stream_answer(question), media_type="text/plain")
-
-    except Exception as e:
-        return JSONResponse(status_code=500, content={"error": str(e)})
-
-'''
-
-
-'''
-
-# ADD THIS STREAMING ENDPOINT
-@app.post("/ask-stream")
-async def stream_question(question: str = Form(...)):
-    """Streaming version of ask endpoint"""
-    try:
-        if not os.path.exists(FAISS_DIR) or not os.listdir(FAISS_DIR):
-            async def no_docs():
-                yield "I don't know (No document found)."
-            return StreamingResponse(no_docs(), media_type="text/plain")
-
-        def generate():
-            stream = answer_question_stream(question)
-            for chunk in stream:
-                if hasattr(chunk, 'content') and chunk.content:
-                    yield chunk.content
-
-        return StreamingResponse(generate(), media_type="text/plain")
-
-    except Exception as e:
-        async def error_response():
-            yield f"Error: {str(e)}"
-        return StreamingResponse(error_response(), media_type="text/plain")
-
-        '''

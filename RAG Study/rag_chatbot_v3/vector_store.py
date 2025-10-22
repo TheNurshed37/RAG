@@ -30,7 +30,7 @@ def add_to_faiss_index(pdf_path, file_hash, faiss_dir, hash_index_file):
     loader = PyPDFLoader(pdf_path, mode="single")
     docs = loader.load()
 
-    splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=400, chunk_overlap=100)
     chunks = splitter.split_documents(docs)
 
     embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
