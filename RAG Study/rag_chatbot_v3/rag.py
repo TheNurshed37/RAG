@@ -21,7 +21,7 @@ def answer_question(question: str):
     retriever = vector_store.as_retriever(search_type="similarity", search_kwargs={"k": 5})
 
     llm = ChatGoogleGenerativeAI(
-        model="gemini-2.5-pro",
+        model="gemini-2.5-flash",
         temperature=0.2,
         streaming = True,
         convert_system_message_to_human=True
