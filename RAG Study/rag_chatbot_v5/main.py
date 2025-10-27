@@ -12,7 +12,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="RAG Chatbot API", version="4.0")
 
-# ✅ Enable CORS properly for FastAPI
+#Enable CORS properly for FastAPI
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # Change to specific origins if needed
@@ -40,7 +40,7 @@ def compute_pdf_hash(file_path: str) -> str:
 
 @app.post("/upload-pdf")
 async def upload_only_pdf(file: UploadFile = File(...)):
-    """Upload a PDF, append embeddings, and remove file after indexing."""
+    """Upload a PDF."""
     try:
         if not file.filename.endswith(".pdf"):
             return JSONResponse(status_code=400, content={"error": "Only PDF files are allowed."})
@@ -86,7 +86,7 @@ async def ask_question(question: str = Form(...)):
 
 @app.post("/reset")
 async def reset_vector_store():
-    """Completely reset FAISS and hash store."""
+    """Completely reset FAISS vectore databse"""
     try:
         # Delete FAISS and hash index
         if os.path.exists(FAISS_DIR):

@@ -19,7 +19,6 @@ def load_hash_index(hash_index_file):
             return json.load(f)
     return {}
 
-
 def save_hash_index(hash_index, hash_index_file):
     """Save the updated file hashes."""
     with open(hash_index_file, "w") as f:
@@ -79,7 +78,7 @@ def validate_and_format_cv_structure(raw_text):
     """
     
     try:
-        print("🔧 Validating CV structure with LLM...")
+        print("Validating CV structure with LLM...")
         
         # Initialize LLM for structuring
         llm = ChatGoogleGenerativeAI(
@@ -99,18 +98,17 @@ def validate_and_format_cv_structure(raw_text):
         })
         
         response = llm.invoke(formatted_prompt)
-        print("✅ CV structure validation completed")
+        print("CV structure validation completed")
         return response.content
         
     except Exception as e:
-        print(f"❌ LLM structuring failed: {e}")
-        print("🔄 Using basic header formatting as fallback...")
+        print(f"LLM structuring failed: {e}")
+        print("Using basic header formatting as fallback...")
         return add_basic_headers_fallback(raw_text)
 
 def add_basic_headers_fallback(raw_text):
     """
-    Basic fallback method that adds simple headers without LLM.
-    This ensures the system never breaks completely.
+    Basic fallback method that adds simple headers without LLM and ensures the system never breaks completely.
     """
     # Simple keyword-based header detection
     lines = raw_text.split('\n')
@@ -155,12 +153,12 @@ def convert_pdf_with_docling(pdf_path):
     # Extract text content
     raw_text = result.document.export_to_markdown()
     
-    print(f"📊 Docling extracted {len(raw_text)} characters from {pdf_path}")
+    print(f"Docling extracted {len(raw_text)} characters from {pdf_path}")
     
     # Enhanced: Validate and structure the CV content
     structured_text = validate_and_format_cv_structure(raw_text)
     
-    print(f"📝 After structuring: {len(structured_text)} characters")
+    print(f"After structuring: {len(structured_text)} characters")
     
     # Create a single LangChain Document with the structured text
     doc = Document(
@@ -172,7 +170,7 @@ def convert_pdf_with_docling(pdf_path):
         }
     )
     
-    print(f"✅ Created 1 structured document")
+    print(f"Created 1 structured document")
     
     return [doc]
 
@@ -183,7 +181,7 @@ def add_to_faiss_index(pdf_path, file_hash, faiss_dir, hash_index_file):
         return f"Skipped: '{os.path.basename(pdf_path)}' already exists in vector store."
 
     # Load and process document using enhanced CV processing
-    print(f"🔄 Processing CV with enhanced pipeline: {pdf_path}")
+    print(f"Processing CV with enhanced pipeline: {pdf_path}")
     docs = convert_pdf_with_docling(pdf_path)
 
     # Use optimized chunking for structured CVs
@@ -194,7 +192,7 @@ def add_to_faiss_index(pdf_path, file_hash, faiss_dir, hash_index_file):
     )
     chunks = splitter.split_documents(docs)
     
-    print(f"📊 Split into {len(chunks)} chunks")
+    print(f"Split into {len(chunks)} chunks")
 
     embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
