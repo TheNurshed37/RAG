@@ -40,7 +40,7 @@ def compute_pdf_hash(file_path: str) -> str:
 
 @app.post("/upload-pdf")
 async def upload_only_pdf(file: UploadFile = File(...)):
-    """Upload a PDF."""
+    """Upload a PDF, append embeddings, and remove file after indexing."""
     try:
         if not file.filename.endswith(".pdf"):
             return JSONResponse(status_code=400, content={"error": "Only PDF files are allowed."})
@@ -86,7 +86,7 @@ async def ask_question(question: str = Form(...)):
 
 @app.post("/reset")
 async def reset_vector_store():
-    """Completely reset FAISS vectore databse"""
+    """Completely reset FAISS and hash store."""
     try:
         # Delete FAISS and hash index
         if os.path.exists(FAISS_DIR):

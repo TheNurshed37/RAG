@@ -1,0 +1,70 @@
+{
+  "candidates": {
+    "b1555ea6-9224-4a3a-b86b-c8c66f16e5e9": {
+      "candidate_id": "b1555ea6-9224-4a3a-b86b-c8c66f16e5e9",
+      "candidate_name": "MD. AHSAN ULLAH ROKANI",
+      "original_filename": "Md._Ahsan_Ullah_Rokani.pdf",
+      "upload_timestamp": "2025-10-29T19:16:14.702258",
+      "name_source": "content_extraction"
+    },
+    "f723ae40-2030-4c0b-ad01-f43fe5f606d3": {
+      "candidate_id": "f723ae40-2030-4c0b-ad01-f43fe5f606d3",
+      "candidate_name": "MD.ROBIUL HOSSAIN",
+      "original_filename": "MD.ROBIUL_HOSSAIN.pdf",
+      "upload_timestamp": "2025-10-29T19:17:00.083459",
+      "name_source": "content_extraction"
+    },
+    "06672e0d-6b79-426f-a7cc-9d6e26a359f6": {
+      "candidate_id": "06672e0d-6b79-426f-a7cc-9d6e26a359f6",
+      "candidate_name": "SAEEF AL MAHMUD",
+      "original_filename": "7. CD_Saeef_Al_Mahmud.pdf",
+      "upload_timestamp": "2025-10-29T19:17:52.700249",
+      "name_source": "content_extraction"
+    },
+    "bc814898-e840-447a-98f7-a8e3d56d937b": {
+      "candidate_id": "bc814898-e840-447a-98f7-a8e3d56d937b",
+      "candidate_name": "KAMRUL HASAN",
+      "original_filename": "30. CD_Kamrul_Hasan.pdf",
+      "upload_timestamp": "2025-10-29T19:18:48.006990",
+      "name_source": "content_extraction"
+    },
+    "e762a87b-c742-44d6-9b1b-ae72bf982175": {
+      "candidate_id": "e762a87b-c742-44d6-9b1b-ae72bf982175",
+      "candidate_name": "M d.Ashi kurRahm an",
+      "original_filename": "0_0_Md. Ashikur Rahman Update CV.pdf",
+      "upload_timestamp": "2025-10-29T19:20:01.802403",
+      "name_source": "content_extraction"
+    },
+    "913821f2-8e03-46a7-bd16-cc5cec046242": {
+      "candidate_id": "913821f2-8e03-46a7-bd16-cc5cec046242",
+      "candidate_name": "Front End Developer",
+      "original_filename": "amanullah_Resume.docx.pdf",
+      "upload_timestamp": "2025-10-29T19:20:32.228948",
+      "name_source": "content_extraction"
+    },
+    "8aa9191f-8219-489c-bde2-6088844a5740": {
+      "candidate_id": "8aa9191f-8219-489c-bde2-6088844a5740",
+      "candidate_name": "Towfiq Alam Pranto",
+      "original_filename": "resume_pranto - Md. Towfiq Alam Pranto.pdf",
+      "upload_timestamp": "2025-10-29T19:21:18.157699",
+      "name_source": "content_extraction"
+    },
+    "22c701ae-9efc-42ce-917a-05efa5f03802": {
+      "candidate_id": "22c701ae-9efc-42ce-917a-05efa5f03802",
+      "candidate_name": "Suprove Chandra Sarkar",
+      "original_filename": "Suprove Chandra Sarkar - Suprove Chandra Sarkar.pdf",
+      "upload_timestamp": "2025-10-29T19:21:47.527833",
+      "name_source": "content_extraction"
+    }
+  },
+  "file_hashes": {
+    "f4005fee295e15c8bd12197bff320e10d8350eacf3b9359fb3c9e3ce5341734f": "b1555ea6-9224-4a3a-b86b-c8c66f16e5e9",
+    "9933f6357af39372d30b64e58eb14fcbba2c97b94ccae0b6fb71196606a976a3": "f723ae40-2030-4c0b-ad01-f43fe5f606d3",
+    "09dcea37782b4a65f5512e538867616270bfb215ecff8e31078342561a96f692": "06672e0d-6b79-426f-a7cc-9d6e26a359f6",
+    "a5d5a15fc7d6f92e815dcc74b1a64b9e4e70d04d97d0561bd48a0b62c132573b": "bc814898-e840-447a-98f7-a8e3d56d937b",
+    "9de7ee8be906f348193daefaec430ec0470e15c96829e2fa80220ec84ca69d15": "e762a87b-c742-44d6-9b1b-ae72bf982175",
+    "5d7c0c32e2cbfd9369d7c76e05028c3968b964505e9a87313088d85ae1a429d2": "913821f2-8e03-46a7-bd16-cc5cec046242",
+    "79b8119d2c71be78188d258be3b026f0778628304e90f99d81881f8f74d6f4a6": "8aa9191f-8219-489c-bde2-6088844a5740",
+    "e07ea49edad233c7d14dc62118adddb2d4a448dfb68f6f43e4999f1639d6021b": "22c701ae-9efc-42ce-917a-05efa5f03802"
+  }
+}
